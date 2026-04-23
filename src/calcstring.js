@@ -13,9 +13,13 @@ class CalcString{
         let subc = 0;
         let numbers = [];
         while(subc<cstr.length){
-          if(isNumber(cstr[subc])) numbers.push(cstr[subc]);
-          //数値を抽出
-          if(cstr[subc]="")
+
+          //項から数値を抽出
+          if(isNumber(cstr[subc])){
+            if(isNumber(cstr[subc-1])) numbers[numbers.length]+=cstr[subc];
+            else numbers.push(cstr[subc]);
+          }
+          
           subc++;
         }
       }

@@ -6,7 +6,7 @@ function isNumber(num){
 }
 
 class CalcString{
-  function calc(let cstr){
+  function calc(cstr){
     if(typeof cstr != "String") console.error("calc関数が受け付ける第一引数はString型を期待しています。");
     else{
       let subc = 0;

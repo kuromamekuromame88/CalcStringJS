@@ -7,6 +7,7 @@ function isNumber(num){
 
 class CalcString{
   Tocalc(cstr){
+    console.log("型:", typeof cstr);
     if(typeof cstr != "String") console.error("calc関数が受け付ける第一引数はString型を期待しています。");
     else{
       let subc = 0;
@@ -19,6 +20,11 @@ class CalcString{
         }  
         subc++;
       }
+      return numbers;
     }
   }
 }
+
+
+const calc = new CalcString();
+calc.Tocalc("1+1+1");

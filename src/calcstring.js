@@ -1,7 +1,7 @@
 //未完成
 
 
-function isNumber(let num){
+function isNumber(num){
   return !isNaN(Number(num))
 }
 

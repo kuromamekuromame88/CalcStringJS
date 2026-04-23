@@ -2,25 +2,35 @@
 
 
 function isNumber(num){
-  return !isNaN(Number(num))
+  return /^[0-9.]$/.test(num);
+}
+
+function isOperator(ope){
+  const operators = ["+", "-", "*", "/", "%"];
+  return operators.includes(ope);
 }
 
 class CalcString{
   Tocalc(cstr){
-    console.log("型:", typeof cstr);
-    if(typeof cstr != "string") console.error("calc関数が受け付ける第一引数はString型を期待しています。");
-    else{
-      let subc = 0;
-      let numbers = [];
+    if(typeof cstr != "string"){
+      console.error("calc関数が受け付ける第一引数はString型を期待しています。");
+      return;
+    }else{
+      var subc = 0;
+      var numbers = [];
       while(subc<cstr.length){
-        //項から数値を抽出
-        if(isNumber(cstr[subc])){
-          if(isNumber(cstr[subc-1])) numbers[numbers.length]+=cstr[subc];
-          else numbers.push(cstr[subc]);
-        }  
+        var ns = cstr[subc];
+        //項から数値と演算子を分割
+        if(isNumber(ns)){
+          if(subc>0 && isNumber(cstr[subc-1])) numbers[numbers.length-1]+=ns;
+          else numbers.push(ns);
+        }else{
+          if(isOperator(ns))numbers.push(ns);
+        }
         subc++;
       }
       return numbers;
+      //この後に計算処理を追加
     }
   }
 }

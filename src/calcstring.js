@@ -6,7 +6,7 @@ function isNumber(num){
 }
 
 function isOperator(ope){
-  const operators = ["+", "-", "*", "/", "%"];
+  const operators = ["+", "-", "*", "/", "%", "(", ")", "{", "}", "[", "]"];
   return operators.includes(ope);
 }
 
